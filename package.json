@@ -11,6 +11,7 @@
 		"preview:host": "vite preview --host"
 	},
 	"devDependencies": {
+		"@types/glidejs__glide": "^3.6.5",
 		"sass": "^1.79.1",
 		"typescript": "^5.5.3",
 		"vite": "^5.4.1",
