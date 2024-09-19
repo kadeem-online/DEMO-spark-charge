@@ -10,6 +10,6 @@
 	.cta-button-1 {
 		@apply bg-gold-500 text-gold-900/80 font-semibold py-2 px-4 border
     border-gold-600 rounded cursor-pointer hover:bg-gold-300
-    focus:bg-gold-700 focus:text-gold-50;
+    focus:bg-gold-700 focus:text-gold-50 fill-gold-900/80 focus:fill-gold-50;
 	}
 }
