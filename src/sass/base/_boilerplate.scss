@@ -29,3 +29,30 @@
 		}
 	}
 }
+
+#stats-section {
+	.sc-container {
+		.stats-grid {
+			@apply grid gap-5 justify-center;
+
+			grid-template-columns: repeat(1, minmax(auto, theme("width.60")));
+			@media screen {
+				@media (min-width: theme("screens.xs")) {
+					grid-template-columns: repeat(2, minmax(auto, theme("width.60")));
+				}
+				@media (min-width: theme("screens.lg")) {
+					grid-template-columns: repeat(4, minmax(auto, theme("width.60")));
+				}
+			}
+			.stats-item {
+				@apply flex flex-col gap-4 items-center;
+				.count {
+					@apply text-4xl lg:text-5xl text-azure-700;
+				}
+				.label {
+					@apply text-base text-center;
+				}
+			}
+		}
+	}
+}
