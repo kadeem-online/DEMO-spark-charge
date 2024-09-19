@@ -5,8 +5,8 @@ export default function startGame(): Phaser.Game {
 		type: Phaser.AUTO,
 		width: 600,
 		height: 900,
-		parent: "#charge-race-challenge",
-		fullscreenTarget: "#charge-race-challenge",
+		parent: "charge-race-challenge",
+		fullscreenTarget: "charge-race-challenge",
 		scale: {
 			mode: Phaser.Scale.ScaleModes.FIT,
 			autoCenter: Phaser.Scale.CENTER_BOTH,
