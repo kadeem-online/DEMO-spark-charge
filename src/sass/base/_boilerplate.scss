@@ -56,3 +56,42 @@
 		}
 	}
 }
+
+#services-section {
+	.sc-container {
+		.services-list {
+			@apply flex flex-row flex-wrap justify-center items-stretch gap-5;
+			.service-item {
+				@apply w-72 p-4 bg-gradient-to-b from-azure-50 to-azure-100 bg-[length:100%_200%]
+        bg-top hover:bg-bottom transition-all rounded border border-azure-200
+        flex flex-col gap-4 items-center;
+
+				> .icon {
+					@apply fill-azure-700;
+					svg {
+						@apply size-16 md:size-20;
+					}
+				}
+
+				&:hover > .icon {
+					@apply fill-azure-600;
+				}
+
+				.title {
+					@apply text-center text-xl md:text-2xl;
+				}
+
+				&:hover .title {
+					@apply text-azure-500;
+				}
+
+				.description {
+					@apply text-sm flex-grow text-center;
+				}
+
+				.service-cta {
+				}
+			}
+		}
+	}
+}
