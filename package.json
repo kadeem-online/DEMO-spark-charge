@@ -1,29 +1,31 @@
 {
-  "name": "0004-spark-charge",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "sass": "^1.79.1",
-    "typescript": "^5.5.3",
-    "vite": "^5.4.1",
-    "vite-plugin-node-polyfills": "^0.22.0"
-  },
-  "dependencies": {
-    "@glidejs/glide": "^3.6.2",
-    "autoprefixer": "^10.4.20",
-    "glob": "^11.0.0",
-    "lenis": "^1.1.13",
-    "lodash": "^4.17.21",
-    "phaser": "^3.85.2",
-    "phaser3-rex-plugins": "^1.80.7",
-    "postcss": "^8.4.47",
-    "simplebar": "^6.2.7",
-    "tailwindcss": "^3.4.12"
-  }
+	"name": "0004-spark-charge",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"dev:host": "vite --host",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"preview:host": "vite preview --host"
+	},
+	"devDependencies": {
+		"sass": "^1.79.1",
+		"typescript": "^5.5.3",
+		"vite": "^5.4.1",
+		"vite-plugin-node-polyfills": "^0.22.0"
+	},
+	"dependencies": {
+		"@glidejs/glide": "^3.6.2",
+		"autoprefixer": "^10.4.20",
+		"glob": "^11.0.0",
+		"lenis": "^1.1.13",
+		"lodash": "^4.17.21",
+		"phaser": "^3.85.2",
+		"phaser3-rex-plugins": "^1.80.7",
+		"postcss": "^8.4.47",
+		"simplebar": "^6.2.7",
+		"tailwindcss": "^3.4.12"
+	}
 }
