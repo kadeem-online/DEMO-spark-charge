@@ -95,3 +95,59 @@
 		}
 	}
 }
+
+#testimonials-section {
+	.sc-container {
+		#testimonials-wrapper {
+			.testimonials-list {
+				@apply w-full flex flex-row;
+				.testimonials-entry {
+					@apply w-72 min-w-72 p-4 bg-gradient-to-b from-azure-600 to-azure-800 text-gray-50
+          rounded flex flex-col gap-4;
+
+					.profile {
+						@apply flex flex-row gap-2 items-center;
+
+						.visual {
+							img {
+								@apply size-20 object-cover bg-azure-50 rounded-full border border-azure-950;
+							}
+						}
+
+						.text {
+							.name {
+								@apply text-azure-50 font-bold text-base;
+							}
+							.description {
+								@apply text-azure-100 text-sm;
+							}
+						}
+					}
+
+					.review {
+						@apply text-sm italic text-gray-50/90;
+						.opening-quote {
+							@apply text-3xl leading-none not-italic text-gray-50;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#page-footer {
+	.sc-container {
+		ul.socials-list {
+			@apply flex flex-row gap-2;
+			.socials-entry {
+				.social-link {
+					@apply fill-gray-50 hover:fill-gold-400;
+					svg {
+						@apply size-10;
+					}
+				}
+			}
+		}
+	}
+}
