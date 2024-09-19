@@ -1,5 +1,5 @@
-import "@/sass/style.scss";
-import startGame from "@/game/init";
+import "../../sass/style.scss";
+import startGame from "../../game/init";
 
 function onPageLoad() {
 	startGame();
