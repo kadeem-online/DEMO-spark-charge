@@ -1,0 +1,13 @@
+@layer components {
+	.sc-container {
+		@apply container mx-auto max-w-screen-xl flex flex-col gap-5 px-5;
+	}
+
+	.section-title {
+		@apply text-xl;
+	}
+
+	.cta-button-1 {
+		@apply bg-gold-500 text-gold-900/80 py-2 px-4 border border-gold-600 rounded cursor-pointer;
+	}
+}

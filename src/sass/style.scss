@@ -1,9 +1,11 @@
+@use "./base/" as *;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
 	body {
-		@apply font-poppins;
+		@apply font-poppins text-lg font-medium text-azure-900;
 	}
 }
