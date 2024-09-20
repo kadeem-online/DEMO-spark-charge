@@ -110,7 +110,7 @@
 
 						.visual {
 							img {
-								@apply size-20 object-cover bg-azure-50 rounded-full border border-azure-950;
+								@apply size-20 min-w-20 object-cover bg-azure-50 rounded-full border border-azure-950;
 							}
 						}
 

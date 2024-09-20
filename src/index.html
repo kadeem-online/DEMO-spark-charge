@@ -14,8 +14,82 @@
 		/>
 	</head>
 	<body class="bg-gray-100">
-		<div id="page-scroll-wrapper">
+		<div
+			id="page-scroll-wrapper"
+			class="h-dvh min-h-dvh overscroll-none overflow-x-hidden"
+		>
 			<main id="page-content-wrapper">
+				<header
+					id="page-header"
+					class="bg-azure-500 text-gray-50 sticky top-0 left-0 z-50"
+				>
+					<div class="sc-container py-3 flex-row justify-between items-center">
+						<div class="logo">
+							<a href="" class="">
+								<svg
+									viewBox="0 0 48 50"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="size-10 fill-gray-50 hover:fill-gold-400 transition-colors"
+								>
+									<path
+										d="M25.133 0.00446117C24.9755 0.00149125 24.8175 0 24.6592 0C11.0403 0 0 11.0403 0 24.6592C0 32.3207 3.494 39.1661 8.9755 43.689L17.3982 31.8444C17.5921 31.5716 17.3971 31.1936 17.0624 31.1936H5.44179C5.18739 31.1936 4.99378 30.9653 5.03528 30.7144L8.01721 12.6765C8.02784 12.6122 8.05333 12.5515 8.09244 12.4994C11.2739 8.2602 17.3809 5.54369 21.3152 5.15664C21.6011 5.12851 21.8095 5.40607 21.7199 5.67901L15.2409 25.4045C15.1534 25.6709 15.3519 25.9451 15.6324 25.9451L25.133 25.9451V0.00446117Z"
+									/>
+									<path
+										d="M25.133 30.9702L10.5708 44.9003C14.5645 47.6853 19.4211 49.3185 24.6592 49.3185C24.8175 49.3185 24.9755 49.317 25.133 49.314V30.9702Z"
+									/>
+									<path
+										d="M27.1931 2.06009H43.8798C46.1553 2.06009 48 3.90475 48 6.18026V12.5665C48 14.842 46.1553 16.6867 43.8798 16.6867H27.1931V2.06009Z"
+									/>
+									<path
+										d="M43.8798 32.6318H27.1931V47.2584H43.8798C46.1553 47.2584 48 45.4137 48 43.1382V36.7519C48 34.4764 46.1553 32.6318 43.8798 32.6318Z"
+									/>
+								</svg>
+							</a>
+						</div>
+
+						<button
+							data-sidebar-menu-open-trigger
+							class="block lg:hidden fill-gray-50 hover:fill-gold-400 transition-colors"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 448 512"
+								class="size-10"
+							>
+								<path
+									d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+								/>
+							</svg>
+						</button>
+
+						<nav id="header-navigation" class="hidden lg:block">
+							<ul class="nav-list flex flex-row gap-5">
+								<li class="nav-item">
+									<a href="#" class="nav-link">Home</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" data-external-link class="nav-link">About</a>
+								</li>
+								<li class="nav-item">
+									<a href="" data-external-link class="nav-link">Products</a>
+								</li>
+								<li class="nav-item">
+									<a href="" data-external-link class="nav-link">Services</a>
+								</li>
+								<li class="nav-item">
+									<a
+										href=""
+										data-external-link
+										class="nav-link cta-button-1 rounded-full"
+										>Contact</a
+									>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</header>
+
 				<section id="hero-section" class="min-h-screen flex items-stretch">
 					<div class="sc-container py-20 items-center justify-center">
 						<h1
@@ -86,6 +160,7 @@
 										alt=""
 										class="object-cover aspect-square rounded shadow-xl shadow-azure-800/60 border border-azure-700 rotate-3 hover:rotate-0 transition-transform ease-out duration-700"
 										width="1920"
+										loading="lazy"
 										height="1079"
 									/>
 								</div>
@@ -98,6 +173,7 @@
 										class="aspect-square object-cover rounded shadow-xl shadow-azure-800/60 border border-azure-700 -rotate-2 hover:rotate-0 transition-transform ease-out duration-700"
 										width="1920"
 										height="1440"
+										loading="lazy"
 									/>
 								</div>
 							</div>
@@ -283,7 +359,9 @@
 							<div
 								id="dummy-game-wrapper"
 								class="w-3/4 max-w-xs aspect-[2/3] bg-azure-950"
-							></div>
+							>
+								<div id="charge-race-challenge"></div>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -554,6 +632,54 @@
 				</footer>
 			</main>
 		</div>
+
+		<div
+			id="sidebar-menu-container"
+			aria-expanded="false"
+			class="fixed top-0 left-0 z-10 w-screen h-screen bg-azure-50/50 backdrop-blur-sm -translate-x-full aria-expanded:translate-x-0 opacity-0 aria-expanded:opacity-100 duration-300 ease-out transition-all lg:hidden"
+		>
+			<div
+				data-sidebar-menu-close-trigger
+				class="absolute top-5 right-5 z-10 bg-azure-900 p-2 cursor-pointer rounded fill-azure-50 hover:bg-azure-700"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 384 512"
+					class="size-8"
+				>
+					<path
+						d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+					/>
+				</svg>
+			</div>
+
+			<div
+				class="w-full max-w-screen-smo h-full bg-gradient-to-b from-azure-500/70 to-azure-700/70 text-gray-50 px-5 py-20 overflow-y-auto flex flex-col items-center"
+			>
+				<p class="text-2xl capitalize mb-5">Menu</p>
+				<nav id="sidebar-menu-navigation">
+					<ul
+						class="nav-list flex flex-col items-center gap-4 text-lg capitalize"
+					>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">About</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">Products</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">Services</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link cta-button-1">Contact</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 		<script type="module" src="./main.ts"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.85.1/phaser.min.js"
@@ -561,5 +687,24 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		></script>
+
+		<noscript>
+			<style>
+				/**
+				* Reinstate scrolling for non-JS clients
+				*/
+				.simplebar-content-wrapper {
+					scrollbar-width: auto;
+					-ms-overflow-style: auto;
+				}
+
+				.simplebar-content-wrapper::-webkit-scrollbar,
+				.simplebar-hide-scrollbar::-webkit-scrollbar {
+					display: initial;
+					width: initial;
+					height: initial;
+				}
+			</style>
+		</noscript>
 	</body>
 </html>
