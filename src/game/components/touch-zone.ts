@@ -21,16 +21,21 @@ export default class TouchZone extends GameObjects.Zone {
 
 		this.setInteractive();
 		this.on("pointerdown", this.EVENT_pointerdown, this);
-		this.on("pointerup", this.EVENT_pointerup, this);
 	}
 
 	EVENT_pointerdown() {
 		this.state = this.STATES.down;
 		this.isDown = true;
+
+		this.on("pointerup", this.EVENT_pointerup, this);
+		this.on("pointerout", this.EVENT_pointerup, this);
 	}
 
 	EVENT_pointerup() {
 		this.state = this.STATES.up;
 		this.isDown = false;
+
+		this.off("pointerup", this.EVENT_pointerup, this);
+		this.off("pointerout", this.EVENT_pointerup, this);
 	}
 }
