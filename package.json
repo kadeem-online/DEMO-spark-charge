@@ -8,7 +8,8 @@
 		"dev:host": "vite --host",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"preview:host": "vite preview --host"
+		"preview:host": "vite preview --host",
+		"preview:swift": "npm run build && npm run preview:host"
 	},
 	"devDependencies": {
 		"@types/glidejs__glide": "^3.6.5",
