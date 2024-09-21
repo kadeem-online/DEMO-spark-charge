@@ -4,6 +4,24 @@ import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 import { defineConfig } from "vite";
 
+function filterManualChunks(id: string) {
+	if (id.includes("node_modules/phaser3-rex-plugins")) {
+		return "phaser3-rex-plugins";
+	}
+	if (id.includes("node_modules/phaser")) {
+		return "phaser";
+	}
+}
+
+function filterExternals(id: string) {
+	if (id.includes("node_modules/phaser3-rex-plugins")) {
+		return "phaser3-rex-plugins";
+	}
+	if (id.includes("node_modules/phaser")) {
+		return "phaser";
+	}
+}
+
 export default defineConfig({
 	appType: "mpa",
 	plugins: [nodePolyfills({ include: ["url"] })],
@@ -13,12 +31,8 @@ export default defineConfig({
 		emptyOutDir: true,
 		rollupOptions: {
 			input: sync("./src/**/*.html".replace(/\\/g, "/")),
-			external: ["phaser"],
 			output: {
-				paths: {
-					phaser:
-						"https://cdnjs.cloudflare.com/ajax/libs/phaser/3.85.1/phaser.esm.min.js",
-				},
+				manualChunks: filterManualChunks,
 			},
 		},
 	},
