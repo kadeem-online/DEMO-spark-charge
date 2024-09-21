@@ -117,6 +117,14 @@ export const COLORS = {
 			hex: 0x71717a,
 		},
 	},
+	success: {
+		css: "#23C552",
+		hex: 0x23c552,
+	},
+	danger: {
+		css: "#F84F31",
+		hex: 0xf84f31,
+	},
 };
 
 export const SCENES = {
