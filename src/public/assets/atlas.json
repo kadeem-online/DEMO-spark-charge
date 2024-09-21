@@ -1,0 +1,229 @@
+{
+	"textures": [
+		{
+			"image": "atlas",
+			"format": "RGBA8888",
+			"size": {
+				"w": 600,
+				"h": 554
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "road",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 600,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 600,
+						"h": 100
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 600,
+						"h": 100
+					}
+				},
+				{
+					"filename": "truck_loaded",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 92,
+						"h": 454
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 92,
+						"h": 454
+					},
+					"frame": {
+						"x": 0,
+						"y": 100,
+						"w": 92,
+						"h": 454
+					}
+				},
+				{
+					"filename": "truck",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 92,
+						"h": 183
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 92,
+						"h": 183
+					},
+					"frame": {
+						"x": 92,
+						"y": 100,
+						"w": 92,
+						"h": 183
+					}
+				},
+				{
+					"filename": "car_3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 69,
+						"h": 179
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 69,
+						"h": 179
+					},
+					"frame": {
+						"x": 92,
+						"y": 283,
+						"w": 69,
+						"h": 179
+					}
+				},
+				{
+					"filename": "car_2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 67,
+						"h": 173
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 67,
+						"h": 173
+					},
+					"frame": {
+						"x": 161,
+						"y": 283,
+						"w": 67,
+						"h": 173
+					}
+				},
+				{
+					"filename": "car_4",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 68,
+						"h": 159
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 68,
+						"h": 159
+					},
+					"frame": {
+						"x": 184,
+						"y": 100,
+						"w": 68,
+						"h": 159
+					}
+				},
+				{
+					"filename": "car_5",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 68,
+						"h": 159
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 68,
+						"h": 159
+					},
+					"frame": {
+						"x": 228,
+						"y": 259,
+						"w": 68,
+						"h": 159
+					}
+				},
+				{
+					"filename": "car_player",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 70,
+						"h": 158
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 70,
+						"h": 158
+					},
+					"frame": {
+						"x": 252,
+						"y": 100,
+						"w": 70,
+						"h": 158
+					}
+				},
+				{
+					"filename": "car_1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 62,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 62,
+						"h": 134
+					},
+					"frame": {
+						"x": 228,
+						"y": 418,
+						"w": 62,
+						"h": 134
+					}
+				},
+				{
+					"filename": "powerup wind",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 161,
+						"y": 456,
+						"w": 32,
+						"h": 32
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7"
+	}
+}
