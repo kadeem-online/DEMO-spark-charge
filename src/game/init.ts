@@ -26,6 +26,9 @@ export default async function startGame(): Promise<Game | void> {
 			backgroundColor: COLORS.azure[500].hex,
 			fullscreenTarget: "charge-race-challenge",
 			height: 900,
+			input: {
+				activePointers: 3,
+			},
 			parent: "charge-race-challenge",
 			physics: {
 				arcade: {},
