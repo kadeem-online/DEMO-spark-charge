@@ -1,4 +1,4 @@
-import { Scene, GameObjects, Math as P3Math, Physics } from "phaser";
+import { Scene, GameObjects, Math as P3Math, Physics, Geom } from "phaser";
 
 // Rex components
 import Button from "phaser3-rex-plugins/plugins/button";
@@ -7,15 +7,38 @@ import Button from "phaser3-rex-plugins/plugins/button";
 import StageOverlayScene from "./stage-overlay";
 import GameOverScene from "./gameover";
 import { COLORS, QUOTES, SCENES } from "../utils/config";
-import { GameState, StageScenePayload } from "../utils/definitions";
+import {
+	GameState,
+	PlayerDirection,
+	StageScenePayload,
+} from "../utils/definitions";
+
+const LANES = {
+	1: 132,
+	2: 244,
+	3: 356,
+	4: 468,
+};
 
 export default class StageScene extends Scene {
+	OBJ_player?: Physics.Arcade.Image;
+	TS_road?: GameObjects.TileSprite;
 	TEXT_pregame_quote?: GameObjects.Text;
+	VAR_obstacle_speed: number;
+	VAR_player_direction: PlayerDirection;
+	CTRL_keyboard: { [key: string]: Phaser.Input.Keyboard.Key };
 	state: GameState;
 
 	constructor() {
 		super(SCENES.stage);
+
 		this.state = "PREGAME";
+		this.CTRL_keyboard = {};
+		this.VAR_obstacle_speed = 0.5;
+		this.VAR_player_direction = {
+			left: false,
+			right: false,
+		};
 	}
 
 	init() {
@@ -36,6 +59,25 @@ export default class StageScene extends Scene {
 
 		// background
 		this.CREATE_scene_background();
+
+		// controls
+		this.SETUP_player_keyboard_controls();
+	}
+
+	update(_time: number, _delta: number) {
+		// scroll road texture
+		if (this.state !== "GAMEOVER" && this.TS_road) {
+			let new_y = this.TS_road.tilePositionY - this.VAR_obstacle_speed * _delta;
+			this.TS_road.setTilePosition(this.TS_road.tilePositionX, new_y);
+			// console.log(_delta);
+		}
+
+		if (this.state === "RUNNING") {
+			this.UPDATE_player_direction();
+			this.UPDATE_player_position_and_rotation(_delta);
+		}
+
+		this.UPDATE_miscellaneous_key_presses();
 	}
 
 	/*##########################################################################*/
@@ -97,10 +139,6 @@ export default class StageScene extends Scene {
 	}
 
 	ACTION_start_game() {
-		// temporary game representaion.
-		this.TEMP_game_state_representation();
-		this.TEMP_game_over_button();
-
 		// pause functionality
 		this.SETUP_game_pause_button();
 	}
@@ -109,8 +147,34 @@ export default class StageScene extends Scene {
 	// CREATE
 	/*##########################################################################*/
 
+	CREATE_player_car() {
+		let lane = LANES[2];
+
+		this.OBJ_player = this.physics.add.image(
+			lane,
+			700,
+			"cq-atlas",
+			"car_player"
+		);
+
+		if (this.OBJ_player.body instanceof Phaser.Physics.Arcade.Body) {
+			this.OBJ_player.body.setBoundsRectangle(
+				new Geom.Rectangle(50, 0, 500, Number(this.game.config.height))
+			);
+		}
+
+		// this.OBJ_player.setCollideWorldBounds(true);
+	}
+
 	CREATE_scene_background() {
-		this.cameras.main.setBackgroundColor(COLORS.azure[900].hex);
+		this.TS_road = this.add.tileSprite(
+			Number(this.game.config.width) / 2,
+			Number(this.game.config.height) / 2,
+			Number(this.game.config.width),
+			Number(this.game.config.height),
+			"cq-atlas",
+			"road"
+		);
 	}
 
 	/*##########################################################################*/
@@ -126,11 +190,25 @@ export default class StageScene extends Scene {
 	}
 
 	EVENT_on_start() {
-		console.log("STAGE: start event");
+		// console.log("STAGE: start event");
+		this.state = "PREGAME";
 	}
 
 	EVENT_on_transition_start(_scene: Scene, duration: number) {
 		this.ACTION_run_pregame_quote(duration);
+
+		this.CREATE_player_car();
+
+		if (this.OBJ_player) {
+			const start_y = Number(this.game.config.height) + this.OBJ_player.height;
+			const final_y = this.OBJ_player.y;
+			this.tweens.add({
+				targets: this.OBJ_player,
+				y: [start_y, final_y],
+				duration: duration,
+				ease: "Power1",
+			});
+		}
 	}
 
 	EVENT_on_transition_complete() {
@@ -139,6 +217,8 @@ export default class StageScene extends Scene {
 		this.scene.moveAbove(this.scene.key, SCENES.stage_overlay);
 		this.scene.run(SCENES.stage_overlay);
 		this.state = "RUNNING";
+
+		this.OBJ_player?.setCollideWorldBounds(true);
 	}
 
 	/*##########################################################################*/
@@ -180,6 +260,71 @@ export default class StageScene extends Scene {
 			},
 			this
 		);
+	}
+
+	SETUP_player_direction_map() {}
+
+	SETUP_player_keyboard_controls() {
+		if (!this.input.keyboard) {
+			return;
+		}
+
+		this.CTRL_keyboard.a = this.input.keyboard.addKey("A");
+		this.CTRL_keyboard.d = this.input.keyboard.addKey("D");
+		this.CTRL_keyboard.left = this.input.keyboard.addKey("LEFT");
+		this.CTRL_keyboard.right = this.input.keyboard.addKey("RIGHT");
+		this.CTRL_keyboard.esc = this.input.keyboard.addKey("ESC");
+
+		return;
+	}
+
+	/*##########################################################################*/
+	// UPDATE
+	/*##########################################################################*/
+
+	/**
+	 * Checks for the registered inputs and updates the player direction accordingly.
+	 */
+	UPDATE_player_direction() {
+		this.VAR_player_direction.left =
+			this.CTRL_keyboard.a?.isDown || this.CTRL_keyboard.left?.isDown || false;
+
+		this.VAR_player_direction.right =
+			this.CTRL_keyboard.d?.isDown || this.CTRL_keyboard.right?.isDown || false;
+	}
+
+	UPDATE_player_position_and_rotation(delta: number) {
+		if (!this.OBJ_player) {
+			return;
+		}
+
+		const move_speed = 0.3;
+		const angle = 5;
+
+		if (
+			(this.VAR_player_direction.left && this.VAR_player_direction.right) ||
+			(!this.VAR_player_direction.left && !this.VAR_player_direction.right)
+		) {
+			this.OBJ_player.setAngle(0);
+		} else if (this.VAR_player_direction.left) {
+			this.OBJ_player.setAngle(-angle);
+			this.OBJ_player.x -= move_speed * delta;
+		} else if (this.VAR_player_direction.right) {
+			this.OBJ_player.setAngle(angle);
+			this.OBJ_player.x += move_speed * delta;
+		}
+	}
+
+	/**
+	 * Checks for miscellaneous key presses
+	 */
+	UPDATE_miscellaneous_key_presses() {
+		if (this.state === "RUNNING") {
+			if (this.CTRL_keyboard.esc?.isDown) {
+				this.ACTION_pause_game();
+				return;
+			}
+		}
 	}
 
 	/*##########################################################################*/

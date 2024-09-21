@@ -7,3 +7,8 @@ export type StageScenePayload = {
 };
 
 export type GameState = "PREGAME" | "RUNNING" | "GAMEOVER";
+
+export type PlayerDirection = {
+	left: boolean;
+	right: boolean;
+};
