@@ -12,6 +12,7 @@ import {
 	PlayerDirection,
 	StageScenePayload,
 } from "../utils/definitions";
+import TouchZone from "../components/touch-zone";
 
 const LANES = {
 	1: 132,
@@ -26,7 +27,9 @@ export default class StageScene extends Scene {
 	TEXT_pregame_quote?: GameObjects.Text;
 	VAR_obstacle_speed: number;
 	VAR_player_direction: PlayerDirection;
+	VAR_player_energy: number;
 	CTRL_keyboard: { [key: string]: Phaser.Input.Keyboard.Key };
+	CTRL_touch_zones?: { left: TouchZone; right: TouchZone };
 	state: GameState;
 
 	constructor() {
@@ -39,6 +42,7 @@ export default class StageScene extends Scene {
 			left: false,
 			right: false,
 		};
+		this.VAR_player_energy = 100;
 	}
 
 	init() {
@@ -62,6 +66,7 @@ export default class StageScene extends Scene {
 
 		// controls
 		this.SETUP_player_keyboard_controls();
+		this.SETUP_player_touch_inputs();
 	}
 
 	update(_time: number, _delta: number) {
@@ -75,6 +80,8 @@ export default class StageScene extends Scene {
 		if (this.state === "RUNNING") {
 			this.UPDATE_player_direction();
 			this.UPDATE_player_position_and_rotation(_delta);
+
+			this.UPDATE_player_energy(_delta);
 		}
 
 		this.UPDATE_miscellaneous_key_presses();
@@ -192,6 +199,7 @@ export default class StageScene extends Scene {
 	EVENT_on_start() {
 		// console.log("STAGE: start event");
 		this.state = "PREGAME";
+		this.VAR_player_energy = 100;
 	}
 
 	EVENT_on_transition_start(_scene: Scene, duration: number) {
@@ -262,7 +270,12 @@ export default class StageScene extends Scene {
 		);
 	}
 
-	SETUP_player_direction_map() {}
+	SETUP_player_touch_inputs() {
+		this.CTRL_touch_zones = {
+			left: new TouchZone(this, 150, 450, 280, 880),
+			right: new TouchZone(this, 450, 450, 280, 880),
+		};
+	}
 
 	SETUP_player_keyboard_controls() {
 		if (!this.input.keyboard) {
@@ -287,10 +300,28 @@ export default class StageScene extends Scene {
 	 */
 	UPDATE_player_direction() {
 		this.VAR_player_direction.left =
-			this.CTRL_keyboard.a?.isDown || this.CTRL_keyboard.left?.isDown || false;
+			this.CTRL_keyboard.a?.isDown ||
+			this.CTRL_keyboard.left?.isDown ||
+			this.CTRL_touch_zones?.left?.isDown ||
+			false;
 
 		this.VAR_player_direction.right =
-			this.CTRL_keyboard.d?.isDown || this.CTRL_keyboard.right?.isDown || false;
+			this.CTRL_keyboard.d?.isDown ||
+			this.CTRL_keyboard.right?.isDown ||
+			this.CTRL_touch_zones?.right?.isDown ||
+			false;
+	}
+
+	UPDATE_player_energy(delta: number) {
+		const tick_speed = 100 / 20000; // 20000ms for the full bar to drain
+
+		this.VAR_player_energy -= tick_speed * delta;
+
+		this.events.emit("updateEnergy", this.VAR_player_energy);
+
+		if (this.VAR_player_energy <= 0) {
+			this.ACTION_end_game();
+		}
 	}
 
 	UPDATE_player_position_and_rotation(delta: number) {
