@@ -9,7 +9,7 @@ export default class BootScene extends Scene {
 	}
 
 	preload() {
-		this.load.image("company-logo", "/assets/company-logo.png");
+		this.load.image("company-logo", "assets/company-logo.png");
 	}
 
 	create() {
