@@ -10,7 +10,7 @@ export default class StageOverlayScene extends Scene {
 	VAR_energy_end_color: Phaser.Display.Color;
 	TEXT_count?: GameObjects.Text;
 	energyBarWidth: number = 500;
-	energyBarHeight: number = 20;
+	energyBarHeight: number = 10;
 
 	constructor() {
 		super(SCENES.stage_overlay);
@@ -32,9 +32,13 @@ export default class StageOverlayScene extends Scene {
 		StageScene.events.on("updateEnergy", this.EVENT_on_energy_update, this);
 
 		this.CREATE_energy_bar();
+		this.TEMP_faux_score();
 	}
 
-	update(time: number, delta: number): void {}
+	update(_time: number, _delta: number): void {
+		this.VAR_count += 1;
+		this.TEXT_count?.setText(`${this.VAR_count}`);
+	}
 
 	/*##########################################################################*/
 	// CREATE
@@ -42,10 +46,10 @@ export default class StageOverlayScene extends Scene {
 
 	CREATE_energy_bar() {
 		const x = 300;
-		const y = 850;
+		const y = 860;
 		const width = this.energyBarWidth;
 		const height = this.energyBarHeight;
-		const padding = 8;
+		const padding = 6;
 
 		const container = this.add.rectangle(
 			x,
@@ -70,6 +74,7 @@ export default class StageOverlayScene extends Scene {
 	/*##########################################################################*/
 
 	EVENT_on_energy_update(energy: number) {
+		// energy = Math.floor(energy);
 		let width = this.energyBarWidth * (energy / 100);
 		const color = this.UTIL_energy_bar_color_interpolation(100, 100 - energy);
 
@@ -109,12 +114,15 @@ export default class StageOverlayScene extends Scene {
 	/*##########################################################################*/
 	// TEMPORARY | DEBUG
 	/*##########################################################################*/
-	TEMP_update_count() {
-		if (this.TEXT_count) {
-			this.VAR_count += 1;
-			this.TEXT_count.setText(`${this.VAR_count}`);
-		}
+	TEMP_faux_score() {
+		this.TEXT_count = this.add
+			.text(300, 30, `${this.VAR_count}`, {
+				color: COLORS.azure[200].css,
+				fontFamily: "Departure Mono",
+				fontSize: "32px",
+				align: "center",
+			})
+			.setOrigin(0.5)
+			.setAlpha(0.5);
 	}
-
-	TEMP_set_bar_color(bar: Phaser.GameObjects.Rectangle) {}
 }

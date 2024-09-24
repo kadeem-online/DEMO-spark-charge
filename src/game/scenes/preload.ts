@@ -76,6 +76,7 @@ export default class PreloadScene extends Scene {
 		// this.scene.start(SCENES.mainmenu);
 		this.scene.transition({
 			target: SCENES.stage,
+			// duration: 3500,
 		});
 	}
 }

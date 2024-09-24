@@ -12,3 +12,25 @@ export type PlayerDirection = {
 	left: boolean;
 	right: boolean;
 };
+
+export type TokenOptions = "hydro" | "wind" | "solar";
+export const TOKENS: TokenOptions[] = ["hydro", "wind", "solar"];
+
+export type GameLevelBlueprint = {
+	next?: GameLevelBlueprint;
+	road_scroll_speed: number;
+	token_speed: number;
+	token_timer: {
+		min: number;
+		max: number;
+	};
+	vehicle_hitbox_scale: {
+		width: number;
+		height: number;
+	};
+	vehicle_speed: number;
+	vehicle_timer: {
+		min: number;
+		max: number;
+	};
+};

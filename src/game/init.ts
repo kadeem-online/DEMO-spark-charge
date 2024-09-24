@@ -31,7 +31,9 @@ export default async function startGame(): Promise<Game | void> {
 			},
 			parent: "charge-race-challenge",
 			physics: {
-				arcade: {},
+				arcade: {
+					// debug: true,
+				},
 				default: "arcade",
 			},
 			scale: {

@@ -48,7 +48,7 @@ export default class MainMenuScene extends Scene {
 
 		this.scene.transition({
 			target: SCENES.stage,
-			duration: 2500,
+			duration: 3500,
 			moveAbove: true,
 		});
 		// this.scene.start(SCENES.stage);
