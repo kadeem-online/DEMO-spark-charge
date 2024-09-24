@@ -30,15 +30,17 @@ export default class StageOverlayScene extends Scene {
 		// Custom Events
 		const StageScene = this.scene.get(SCENES.stage);
 		StageScene.events.on("updateEnergy", this.EVENT_on_energy_update, this);
+		StageScene.events.on(
+			"updateScore",
+			this.EVENT_on_player_score_update,
+			this
+		);
 
 		this.CREATE_energy_bar();
-		this.TEMP_faux_score();
+		this.CREATE_player_score();
 	}
 
-	update(_time: number, _delta: number): void {
-		this.VAR_count += 1;
-		this.TEXT_count?.setText(`${this.VAR_count}`);
-	}
+	update(_time: number, _delta: number): void {}
 
 	/*##########################################################################*/
 	// CREATE
@@ -82,6 +84,10 @@ export default class StageOverlayScene extends Scene {
 		this.VAR_energy_bar?.setFillStyle(color);
 	}
 
+	EVENT_on_player_score_update(score: number) {
+		this.TEXT_count?.setText(`${score}`);
+	}
+
 	EVENT_on_shutdown() {
 		// console.log("OVERLAY: shutdown");
 
@@ -114,7 +120,7 @@ export default class StageOverlayScene extends Scene {
 	/*##########################################################################*/
 	// TEMPORARY | DEBUG
 	/*##########################################################################*/
-	TEMP_faux_score() {
+	CREATE_player_score() {
 		this.TEXT_count = this.add
 			.text(300, 30, `${this.VAR_count}`, {
 				color: COLORS.azure[200].css,

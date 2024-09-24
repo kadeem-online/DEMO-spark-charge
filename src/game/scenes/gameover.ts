@@ -5,16 +5,36 @@ import Button from "phaser3-rex-plugins/plugins/button";
 
 // utils
 import { SCENES, COLORS } from "../utils/config";
+import { GameOverScenePayload } from "../utils/definitions";
+import { setLocalScore } from "../utils/functions";
 
 export default class GameOverScene extends Scene {
+	score?: number;
+
 	constructor() {
 		super(SCENES.gameover);
 	}
 
+	init(data: GameOverScenePayload) {
+		try {
+			this.score = data.score || undefined;
+
+			if (this.score) {
+				setLocalScore(this.score);
+			}
+		} catch (error) {}
+	}
+
 	create() {
+		// backdrop
+		this.SETUP_backdrop();
+
 		// buttons
 		this.SETUP_main_menu_button();
 		this.SETUP_restart_game_button();
+
+		// score
+		this.SETUP_show_final_score();
 	}
 
 	ACTION_exit_to_main_menu() {
@@ -155,5 +175,29 @@ export default class GameOverScene extends Scene {
 			},
 			this
 		);
+	}
+
+	SETUP_backdrop() {
+		this.add.rectangle(
+			Number(this.game.config.width) / 2,
+			Number(this.game.config.height) / 2,
+			Number(this.game.config.width),
+			Number(this.game.config.height),
+			COLORS.azure[950].hex,
+			0.75
+		);
+	}
+
+	SETUP_show_final_score() {
+		if (this.score) {
+			let text = this.add.text(300, 300, `${this.score}`, {
+				color: COLORS.azure[100].css,
+				fontFamily: "Departure Mono",
+				fontSize: "80px",
+				stroke: COLORS.azure[500].css,
+				strokeThickness: 3,
+			});
+			text.setOrigin(0.5);
+		}
 	}
 }

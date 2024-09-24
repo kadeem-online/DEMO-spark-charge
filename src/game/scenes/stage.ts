@@ -9,6 +9,7 @@ import GameOverScene from "./gameover";
 import { COLORS, QUOTES, SCENES } from "../utils/config";
 import {
 	GameLevelBlueprint,
+	GameOverScenePayload,
 	GameState,
 	PlayerDirection,
 	StageScenePayload,
@@ -31,6 +32,7 @@ export default class StageScene extends Scene {
 	TS_road?: GameObjects.TileSprite;
 	TEXT_pregame_quote?: GameObjects.Text;
 	VAR_player_direction: PlayerDirection;
+	VAR_player_score: number = 0;
 	VAR_player_energy: number;
 	VAR_start_level = 0;
 	VAR_end_level = 20;
@@ -109,6 +111,7 @@ export default class StageScene extends Scene {
 			this.UPDATE_player_position_and_rotation(_delta);
 
 			this.UPDATE_player_energy(_delta);
+			this.UPDATE_player_score(_delta);
 		}
 
 		this.UPDATE_miscellaneous_key_presses();
@@ -120,7 +123,11 @@ export default class StageScene extends Scene {
 
 	ACTION_end_game() {
 		if (this.state === "RUNNING") {
-			this.scene.add(SCENES.gameover, GameOverScene, true);
+			const gameover_data: GameOverScenePayload = {
+				score: Math.ceil(this.VAR_player_score),
+			};
+
+			this.scene.add(SCENES.gameover, GameOverScene, true, gameover_data);
 			this.scene.moveAbove(this.scene.key, SCENES.gameover);
 
 			this.scene.pause(this.scene.key);
@@ -287,6 +294,7 @@ export default class StageScene extends Scene {
 
 		// RESETS
 		this.VAR_current_level = 0;
+		this.VAR_player_score = 0;
 		this.VAR_level_data = CreateGameLevels(this.VAR_current_level);
 		this.CREATE_token_pool();
 		this.CREATE_traffic_vehicle_pool();
@@ -699,6 +707,11 @@ export default class StageScene extends Scene {
 				return;
 			}
 		}
+	}
+
+	UPDATE_player_score(delta: number) {
+		this.VAR_player_score += this.VAR_level_data.score_per_second * delta;
+		this.events.emit("updateScore", Math.ceil(this.VAR_player_score));
 	}
 
 	/*##########################################################################*/

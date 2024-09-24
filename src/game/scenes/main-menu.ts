@@ -6,6 +6,7 @@ import Button from "phaser3-rex-plugins/plugins/button";
 // Utilities
 import { COLORS, SCENES } from "../utils/config";
 import { InfoScenPayload } from "../utils/definitions";
+import { getLocalScore } from "../utils/functions";
 
 export default class MainMenuScene extends Scene {
 	FLAG_can_change_scene: boolean;
@@ -22,6 +23,9 @@ export default class MainMenuScene extends Scene {
 
 		// Background
 		this.SETUP_background_image();
+
+		// Highscore
+		this.SETUP_show_current_highscore();
 
 		// action buttons
 		this.SETUP_play_action_button();
@@ -192,5 +196,32 @@ export default class MainMenuScene extends Scene {
 			},
 			this
 		);
+	}
+
+	SETUP_show_current_highscore() {
+		const score = getLocalScore();
+		if (!score) {
+			return;
+		}
+
+		const high_score_label = this.add.text(300, 380, "HIGHSCORE", {
+			color: COLORS.azure[50].css,
+			fontFamily: "Departure Mono",
+			fontSize: "32px",
+			fontStyle: "bold",
+			stroke: COLORS.azure[800].css,
+			strokeThickness: 5,
+		});
+		high_score_label.setOrigin(0.5);
+
+		const score_label = this.add.text(300, 450, `${score}`, {
+			color: COLORS.gold[400].css,
+			fontFamily: "Departure Mono",
+			fontSize: "96px",
+			fontStyle: "bold",
+			stroke: COLORS.gold[800].css,
+			strokeThickness: 8,
+		});
+		score_label.setOrigin(0.5);
 	}
 }
