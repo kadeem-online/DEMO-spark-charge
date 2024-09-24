@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite + TS</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script type="module" crossorigin src="/DEMO-spark-charge/assets/index-BMVAxiBo.js"></script>
+		<link rel="modulepreload" crossorigin href="/DEMO-spark-charge/assets/phaser-rbjdQqOn.js">
+		<link rel="modulepreload" crossorigin href="/DEMO-spark-charge/assets/phaser3-rex-plugins-DxaJ81PS.js">
+		<link rel="modulepreload" crossorigin href="/DEMO-spark-charge/assets/init-DLhCMStE.js">
+		<link rel="stylesheet" crossorigin href="/DEMO-spark-charge/assets/init-BHw31Co3.css">
+		<link rel="stylesheet" crossorigin href="/DEMO-spark-charge/assets/index-YgFzlfym.css">
+	</head>
+	<body class="bg-gray-100">
+		<div
+			id="page-scroll-wrapper"
+			class="h-dvh min-h-dvh overscroll-none overflow-x-hidden"
+		>
+			<main id="page-content-wrapper">
+				<header
+					id="page-header"
+					class="bg-azure-500 text-gray-50 sticky top-0 left-0 z-50"
+				>
+					<div class="sc-container py-3 flex-row justify-between items-center">
+						<div class="logo">
+							<a href="" class="">
+								<svg
+									viewBox="0 0 48 50"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="size-10 fill-gray-50 hover:fill-gold-400 transition-colors"
+								>
+									<path
+										d="M25.133 0.00446117C24.9755 0.00149125 24.8175 0 24.6592 0C11.0403 0 0 11.0403 0 24.6592C0 32.3207 3.494 39.1661 8.9755 43.689L17.3982 31.8444C17.5921 31.5716 17.3971 31.1936 17.0624 31.1936H5.44179C5.18739 31.1936 4.99378 30.9653 5.03528 30.7144L8.01721 12.6765C8.02784 12.6122 8.05333 12.5515 8.09244 12.4994C11.2739 8.2602 17.3809 5.54369 21.3152 5.15664C21.6011 5.12851 21.8095 5.40607 21.7199 5.67901L15.2409 25.4045C15.1534 25.6709 15.3519 25.9451 15.6324 25.9451L25.133 25.9451V0.00446117Z"
+									/>
+									<path
+										d="M25.133 30.9702L10.5708 44.9003C14.5645 47.6853 19.4211 49.3185 24.6592 49.3185C24.8175 49.3185 24.9755 49.317 25.133 49.314V30.9702Z"
+									/>
+									<path
+										d="M27.1931 2.06009H43.8798C46.1553 2.06009 48 3.90475 48 6.18026V12.5665C48 14.842 46.1553 16.6867 43.8798 16.6867H27.1931V2.06009Z"
+									/>
+									<path
+										d="M43.8798 32.6318H27.1931V47.2584H43.8798C46.1553 47.2584 48 45.4137 48 43.1382V36.7519C48 34.4764 46.1553 32.6318 43.8798 32.6318Z"
+									/>
+								</svg>
+							</a>
+						</div>
+
+						<button
+							data-sidebar-menu-open-trigger
+							class="block lg:hidden fill-gray-50 hover:fill-gold-400 transition-colors"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 448 512"
+								class="size-10"
+							>
+								<path
+									d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+								/>
+							</svg>
+						</button>
+
+						<nav id="header-navigation" class="hidden lg:block">
+							<ul class="nav-list flex flex-row gap-5">
+								<li class="nav-item">
+									<a href="#" class="nav-link">Home</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" data-external-link class="nav-link">About</a>
+								</li>
+								<li class="nav-item">
+									<a href="" data-external-link class="nav-link">Products</a>
+								</li>
+								<li class="nav-item">
+									<a href="" data-external-link class="nav-link">Services</a>
+								</li>
+								<li class="nav-item">
+									<a
+										href=""
+										data-external-link
+										class="nav-link cta-button-1 rounded-full"
+										>Contact</a
+									>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</header>
+
+				<section id="hero-section" class="min-h-screen flex items-stretch">
+					<div class="sc-container py-20 items-center justify-center">
+						<h1
+							class="font-bold text-azure-500 text-5xl leading-tight w-3/4 max-w-lg text-center"
+						>
+							Powering The Future, One Charge &#9889; at a Time.
+						</h1>
+						<p class="sub-text text-azure-700 w-3/4 max-w-lg text-center">
+							Charge your electric vehicle faster, greener, and smarter with
+							SparkCharge Electric—your trusted partner for EV charging
+							solutions at home, on the road, and for your business.
+						</p>
+
+						<a href="" data-external-link class="hro-cta cta-button-1">
+							Find Charging Stations Near You
+						</a>
+					</div>
+				</section>
+
+				<section
+					id="about-section"
+					class="bg-gradient-to-b from-azure-50 to-azure-100 border-y border-azure-100 shadow-inner shadow-azure-500/10"
+				>
+					<div
+						class="sc-container gap-20 lg:gap-10 py-12 lg:py-24 lg:grid lg:grid-cols-2"
+					>
+						<div class="text-content flex flex-col gap-5">
+							<h2 class="section-title text-azure-700">
+								About SparkCharge Electric
+							</h2>
+							<div
+								class="about-description flex flex-col gap-4 text-azure-800 md:text-justify"
+							>
+								<p class="">
+									At SparkCharge, we believe in a cleaner, more sustainable
+									future. Our mission is to make electric vehicle (EV) charging
+									easy, accessible, and reliable for everyone. By providing
+									cutting-edge charging solutions for both individuals and
+									businesses, we’re empowering a new generation of eco-conscious
+									drivers to embrace electric mobility.
+								</p>
+								<p class="">
+									With a focus on innovation, sustainability, and convenience,
+									SparkCharge offers everything from home charging systems to
+									public and business charging stations. Whether you’re charging
+									your vehicle at home or on the go, we’re committed to reducing
+									carbon emissions and making EV ownership a seamless
+									experience.
+								</p>
+								<p class="">
+									We’re more than just a charging company—we’re helping to build
+									the infrastructure needed to support the growing shift towards
+									electric vehicles. By choosing SparkCharge, you’re not only
+									investing in reliable technology but also contributing to a
+									greener planet.
+								</p>
+							</div>
+						</div>
+						<div class="visual-content flex items-center justify-center">
+							<div
+								class="image-grid w-full max-w-lg grid grid-cols-3 grid-rows-3"
+							>
+								<div
+									class="image-container image-container-1 col-start-2 col-span-2 row-start-1 row-span-2"
+								>
+									<img
+										src="./ev-charger-001.jpg"
+										alt=""
+										class="object-cover aspect-square rounded shadow-xl shadow-azure-800/60 border border-azure-700 rotate-3 hover:rotate-0 transition-transform ease-out duration-700"
+										width="1920"
+										loading="lazy"
+										height="1079"
+									/>
+								</div>
+								<div
+									class="image-container image-container-2 col-start-1 col-span-2 row-start-2 row-span-2"
+								>
+									<img
+										src="./ev-charger-002.jpg"
+										alt=""
+										class="aspect-square object-cover rounded shadow-xl shadow-azure-800/60 border border-azure-700 -rotate-2 hover:rotate-0 transition-transform ease-out duration-700"
+										width="1920"
+										height="1440"
+										loading="lazy"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="stats-section">
+					<div class="sc-container py-24">
+						<ul class="stats-grid">
+							<li class="stats-item">
+								<p class="count">
+									<span class="value">500</span>
+									<span>+</span>
+								</p>
+								<p class="label">charging stations installed.</p>
+							</li>
+							<li class="stats-item">
+								<p class="count">
+									<span class="value">100</span>
+									<span>+</span>
+								</p>
+								<p class="label">Business Powered By SparkCharge.</p>
+							</li>
+							<li class="stats-item">
+								<p class="count">
+									<span class="value">10,000</span>
+									<span>+</span>
+								</p>
+								<p class="label">Hours of Clean Energy Delivered.</p>
+							</li>
+							<li class="stats-item">
+								<p class="count">
+									<span class="value">25</span>
+									<span>%</span>
+								</p>
+								<p class="label">Faster Charging with SparkCharge Tech.</p>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="services-section">
+					<div class="sc-container pb-10 gap-16">
+						<h2 class="section-title text-azure-800 text-center">
+							Charging Solutions for Every Journey
+						</h2>
+						<ul class="services-list">
+							<li class="service-item">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+										<path
+											d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c.2 35.5-28.5 64.3-64 64.3l-320.4 0c-35.3 0-64-28.7-64-64l0-160.4-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24zM352 224a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm-96 96c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16l192 0c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80l-64 0z"
+										/>
+									</svg>
+								</div>
+								<h3 class="title">Home Charging Solutions.</h3>
+								<div class="description">
+									Take control of your EV charging with our easy-to-install home
+									charging stations. Whether you need a compact solution for
+									your garage or a high-powered unit for faster charging, we’ve
+									got the perfect fit for your lifestyle.
+								</div>
+								<a
+									href="#"
+									data-external-link
+									class="service-cta cta-button-1 flex justify-between items-center w-full"
+								>
+									<span class="label">Learn More</span>
+									<span class="icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 448 512"
+											class="size-8"
+										>
+											<path
+												d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+											/>
+										</svg>
+									</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+										<path
+											d="M480 48c0-26.5-21.5-48-48-48L336 0c-26.5 0-48 21.5-48 48l0 48-64 0 0-72c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 72-64 0 0-72c0-13.3-10.7-24-24-24S64 10.7 64 24l0 72L48 96C21.5 96 0 117.5 0 144l0 96L0 464c0 26.5 21.5 48 48 48l256 0 32 0 96 0 160 0c26.5 0 48-21.5 48-48l0-224c0-26.5-21.5-48-48-48l-112 0 0-144zm96 320l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zM240 416l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16zM128 400c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32zM560 256c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zM256 176l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zM112 160c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zM256 304c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32zM112 320l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16zm304-48l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zM400 64c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zm16 112l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16z"
+										/>
+									</svg>
+								</div>
+								<h3 class="title">Public and Business Charging Stations.</h3>
+								<div class="description">
+									From shopping malls to parking garages, we provide robust
+									charging solutions that keep your customers or employees on
+									the move. Partner with us to make your business a hub for EV
+									drivers and show your commitment to sustainability.
+								</div>
+								<a
+									href="#"
+									data-external-link
+									class="service-cta cta-button-1 flex justify-between items-center w-full"
+								>
+									<span class="label">Learn More</span>
+									<span class="icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 448 512"
+											class="size-8"
+										>
+											<path
+												d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+											/>
+										</svg>
+									</span>
+								</a>
+							</li>
+							<li class="service-item">
+								<div class="icon ms-6">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+										<path
+											d="M96 0C60.7 0 32 28.7 32 64l0 384c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-144 16 0c22.1 0 40 17.9 40 40l0 32c0 39.8 32.2 72 72 72s72-32.2 72-72l0-123.7c32.5-10.2 56-40.5 56-76.3l0-32c0-8.8-7.2-16-16-16l-16 0 0-48c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 48-32 0 0-48c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 48-16 0c-8.8 0-16 7.2-16 16l0 32c0 35.8 23.5 66.1 56 76.3L472 376c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-32c0-48.6-39.4-88-88-88l-16 0 0-192c0-35.3-28.7-64-64-64L96 0zM216.9 82.7c6 4 8.5 11.5 6.3 18.3l-25 74.9 57.8 0c6.7 0 12.7 4.2 15 10.4s.5 13.3-4.6 17.7l-112 96c-5.5 4.7-13.4 5.1-19.3 1.1s-8.5-11.5-6.3-18.3l25-74.9L96 208c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7l112-96c5.5-4.7 13.4-5.1 19.3-1.1z"
+										/>
+									</svg>
+								</div>
+								<h3 class="title">Fast Charge Technology.</h3>
+								<div class="description">
+									In a rush? Our fast-charging technology delivers the power you
+									need, faster than ever before. Whether you’re at home or on
+									the go, SparkCharge ensures your EV is ready for the next
+									adventure in record time.
+								</div>
+								<a
+									href="#"
+									data-external-link
+									class="service-cta cta-button-1 flex justify-between items-center w-full"
+								>
+									<span class="label">Learn More</span>
+									<span class="icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 448 512"
+											class="size-8"
+										>
+											<path
+												d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+											/>
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section
+					id="mini-game-section"
+					class="bg-gradient-to-b from-azure-700 to-azure-900 text-gray-50"
+				>
+					<div
+						class="sc-container py-20 flex-col-reverse md:grid md:grid-cols-2 md:items-center gap-10"
+					>
+						<div class="text-block flex flex-col gap-5">
+							<h2 class="section-title">
+								Charge Race Challenge - Play & Learn
+							</h2>
+							<p class="text">
+								Test your driving skills and discover how SparkCharge is
+								revolutionizing EV charging. Guide your electric vehicle through
+								the city, collect renewable energy tokens, and make it to our
+								charging stations before you run out of juice. Along the way,
+								learn about how our home and public charging solutions keep you
+								powered up, wherever the road takes you.
+							</p>
+							<a
+								href="#"
+								data-external-link
+								class="mini-game-cta cta-button-1 w-fit"
+							>
+								<span>Explore Our Charging Solutions</span>
+							</a>
+						</div>
+						<div class="game-block flex justify-center">
+							<div
+								id="dummy-game-wrapper"
+								class="w-3/4 max-w-xs aspect-[2/3] bg-azure-950"
+							>
+								<div id="charge-race-challenge"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="testimonials-section" class="overflow-hidden">
+					<div class="sc-container py-12">
+						<h2 class="section-title">What Our Clients Are Saying</h2>
+						<p class="text">
+							At SparkCharge, we’re proud to help businesses and individuals
+							make the switch to clean, reliable energy. Here’s what a few of
+							our satisfied clients have to say about their experience with our
+							EV charging solutions.
+						</p>
+
+						<!-- testimonials glide-container -->
+						<div id="testimonials-wrapper">
+							<div id="testimonials-slider" class="glide">
+								<div class="glide__track" data-glide-el="track">
+									<ul class="glide__slides testimonials-list">
+										<li class="glide__slide testimonials-entry">
+											<div class="profile">
+												<div class="visual">
+													<img
+														src="/DEMO-spark-charge/default_profile.jpg"
+														alt="profile picture"
+														width="564"
+														height="564"
+													/>
+												</div>
+												<div class="text">
+													<p class="name">Sarah P.</p>
+													<p class="description">Tesla Model 3 Owner</p>
+												</div>
+											</div>
+											<div class="review">
+												<span class="opening-quote">"</span>
+												<span class="content">
+													SparkCharge’s home charging solution has completely
+													transformed my EV experience. It’s reliable, quick,
+													and the installation process was a breeze. I highly
+													recommend them to anyone with an electric vehicle!
+												</span>
+												<span class="closing-quote">"</span>
+											</div>
+										</li>
+
+										<li class="glide__slide testimonials-entry">
+											<div class="profile">
+												<div class="visual">
+													<img
+														src="/DEMO-spark-charge/default_profile.jpg"
+														alt="profile picture"
+														width="564"
+														height="564"
+													/>
+												</div>
+												<div class="text">
+													<p class="name">Martin L.</p>
+													<p class="description">Hotel Manager.</p>
+												</div>
+											</div>
+											<div class="review">
+												<span class="opening-quote">"</span>
+												<span class="content">
+													As a hotel owner, I wanted to make my business more
+													eco-friendly, and SparkCharge made it easy to install
+													charging stations for our guests. Now we’re attracting
+													more customers who care about sustainability!
+												</span>
+												<span class="closing-quote">"</span>
+											</div>
+										</li>
+
+										<li class="glide__slide testimonials-entry">
+											<div class="profile">
+												<div class="visual">
+													<img
+														src="/DEMO-spark-charge/default_profile.jpg"
+														alt="profile picture"
+														width="564"
+														height="564"
+													/>
+												</div>
+												<div class="text">
+													<p class="name">Alex M.</p>
+													<p class="description">Hotel Nissan Leaf Driver.</p>
+												</div>
+											</div>
+											<div class="review">
+												<span class="opening-quote">"</span>
+												<span class="content">
+													I love SparkCharge’s fast-charging stations—they’ve
+													saved me so much time on road trips. The tech is
+													amazing, and I never have to worry about running out
+													of charge!
+												</span>
+												<span class="closing-quote">"</span>
+											</div>
+										</li>
+
+										<li class="glide__slide testimonials-entry">
+											<div class="profile">
+												<div class="visual">
+													<img
+														src="/DEMO-spark-charge/default_profile.jpg"
+														alt="profile picture"
+														width="564"
+														height="564"
+													/>
+												</div>
+												<div class="text">
+													<p class="name">Tom R.</p>
+													<p class="description">Shopping Mall Administrator</p>
+												</div>
+											</div>
+											<div class="review">
+												<span class="opening-quote">"</span>
+												<span class="content">
+													We installed SparkCharge stations at our shopping
+													center, and it’s been a game-changer for attracting
+													eco-conscious customers. It’s fast, reliable, and easy
+													to maintain!
+												</span>
+												<span class="closing-quote">"</span>
+											</div>
+										</li>
+
+										<li class="glide__slide testimonials-entry">
+											<div class="profile">
+												<div class="visual">
+													<img
+														src="/DEMO-spark-charge/default_profile.jpg"
+														alt="profile picture"
+														width="564"
+														height="564"
+													/>
+												</div>
+												<div class="text">
+													<p class="name">Emily J.</p>
+													<p class="description">EV Owner.</p>
+												</div>
+											</div>
+											<div class="review">
+												<span class="opening-quote">"</span>
+												<span class="content">
+													The home charging solution from SparkCharge has been
+													fantastic. I never have to worry about finding a
+													public charger—I can charge my EV overnight and be
+													ready to go in the morning.
+												</span>
+												<span class="closing-quote">"</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<footer id="page-footer" class="bg-azure-500 text-gray-50">
+					<div class="sc-container py-12 gap-12">
+						<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+							<div class="group group1 flex flex-col gap-4 lg:col-span-2">
+								<h2 class="section-title">Stay Connected with SparkCharge</h2>
+								<p class="outro">
+									Follow us on social media to stay updated on the latest in EV
+									charging technology, sustainability news, and exclusive
+									offers. Sign up for our newsletter to receive tips on how to
+									get the most out of your electric vehicle.
+								</p>
+								<form class="flex flex-col sm:flex-row gap-3">
+									<div class="form-group">
+										<input
+											type="email"
+											name="email"
+											class="p-2 rounded text-azure-700 w-full"
+											id="email"
+											placeholder="Your email..."
+										/>
+									</div>
+									<div class="form-group">
+										<input
+											type="submit"
+											value="Sign Up Now"
+											class="cta-button-1"
+										/>
+									</div>
+								</form>
+							</div>
+							<div class="group group2 lg:justify-self-end">
+								<ul class="socials-list">
+									<li class="socials-entry">
+										<a href="" class="social-link">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 448 512"
+											>
+												<path
+													d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+												/>
+											</svg>
+										</a>
+									</li>
+									<li class="socials-entry">
+										<a href="" class="social-link">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 448 512"
+											>
+												<path
+													d="M194.4 211.7a53.3 53.3 0 1 0 59.3 88.7 53.3 53.3 0 1 0 -59.3-88.7zm142.3-68.4c-5.2-5.2-11.5-9.3-18.4-12c-18.1-7.1-57.6-6.8-83.1-6.5c-4.1 0-7.9 .1-11.2 .1c-3.3 0-7.2 0-11.4-.1c-25.5-.3-64.8-.7-82.9 6.5c-6.9 2.7-13.1 6.8-18.4 12s-9.3 11.5-12 18.4c-7.1 18.1-6.7 57.7-6.5 83.2c0 4.1 .1 7.9 .1 11.1s0 7-.1 11.1c-.2 25.5-.6 65.1 6.5 83.2c2.7 6.9 6.8 13.1 12 18.4s11.5 9.3 18.4 12c18.1 7.1 57.6 6.8 83.1 6.5c4.1 0 7.9-.1 11.2-.1c3.3 0 7.2 0 11.4 .1c25.5 .3 64.8 .7 82.9-6.5c6.9-2.7 13.1-6.8 18.4-12s9.3-11.5 12-18.4c7.2-18 6.8-57.4 6.5-83c0-4.2-.1-8.1-.1-11.4s0-7.1 .1-11.4c.3-25.5 .7-64.9-6.5-83l0 0c-2.7-6.9-6.8-13.1-12-18.4zm-67.1 44.5A82 82 0 1 1 178.4 324.2a82 82 0 1 1 91.1-136.4zm29.2-1.3c-3.1-2.1-5.6-5.1-7.1-8.6s-1.8-7.3-1.1-11.1s2.6-7.1 5.2-9.8s6.1-4.5 9.8-5.2s7.6-.4 11.1 1.1s6.5 3.9 8.6 7s3.2 6.8 3.2 10.6c0 2.5-.5 5-1.4 7.3s-2.4 4.4-4.1 6.2s-3.9 3.2-6.2 4.2s-4.8 1.5-7.3 1.5l0 0c-3.8 0-7.5-1.1-10.6-3.2zM448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM357 389c-18.7 18.7-41.4 24.6-67 25.9c-26.4 1.5-105.6 1.5-132 0c-25.6-1.3-48.3-7.2-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6 0-132c1.3-25.6 7.1-48.3 25.8-67s41.5-24.6 67-25.8c26.4-1.5 105.6-1.5 132 0c25.6 1.3 48.3 7.1 67 25.8s24.6 41.4 25.8 67c1.5 26.3 1.5 105.4 0 131.9c-1.3 25.6-7.1 48.3-25.8 67z"
+												/>
+											</svg>
+										</a>
+									</li>
+									<li class="socials-entry">
+										<a href="" class="social-link">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 448 512"
+											>
+												<path
+													d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"
+												/>
+											</svg>
+										</a>
+									</li>
+									<li class="socials-entry">
+										<a href="" class="social-link">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 448 512"
+											>
+												<path
+													d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64h98.2V334.2H109.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H255V480H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"
+												/>
+											</svg>
+										</a>
+									</li>
+									<li class="socials-entry">
+										<a href="" class="social-link">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 448 512"
+											>
+												<path
+													d="M282 256.2l-95.2-54.1V310.3L282 256.2zM384 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm14.4 136.1c7.6 28.6 7.6 88.2 7.6 88.2s0 59.6-7.6 88.1c-4.2 15.8-16.5 27.7-32.2 31.9C337.9 384 224 384 224 384s-113.9 0-142.2-7.6c-15.7-4.2-28-16.1-32.2-31.9C42 315.9 42 256.3 42 256.3s0-59.7 7.6-88.2c4.2-15.8 16.5-28.2 32.2-32.4C110.1 128 224 128 224 128s113.9 0 142.2 7.7c15.7 4.2 28 16.6 32.2 32.4z"
+												/>
+											</svg>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<hr class="divider border-t-4 border-t-azure-50/25" />
+						<div class="block">
+							<p class="copyright text-sm font-semibold text-azure-100">
+								© 2024 SparkCharge. Designed By
+								<a
+									href="https://kadeem.online"
+									class="text-gold-200 underline underline-offset-4"
+									>Kadeem</a
+								>
+							</p>
+						</div>
+					</div>
+				</footer>
+			</main>
+		</div>
+
+		<div
+			id="sidebar-menu-container"
+			aria-expanded="false"
+			class="fixed top-0 left-0 z-10 w-screen h-screen bg-azure-50/50 backdrop-blur-sm -translate-x-full aria-expanded:translate-x-0 opacity-0 aria-expanded:opacity-100 duration-300 ease-out transition-all lg:hidden"
+		>
+			<div
+				data-sidebar-menu-close-trigger
+				class="absolute top-5 right-5 z-10 bg-azure-900 p-2 cursor-pointer rounded fill-azure-50 hover:bg-azure-700"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 384 512"
+					class="size-8"
+				>
+					<path
+						d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+					/>
+				</svg>
+			</div>
+
+			<div
+				class="w-full max-w-screen-smo h-full bg-gradient-to-b from-azure-500/70 to-azure-700/70 text-gray-50 px-5 py-20 overflow-y-auto flex flex-col items-center"
+			>
+				<p class="text-2xl capitalize mb-5">Menu</p>
+				<nav id="sidebar-menu-navigation">
+					<ul
+						class="nav-list flex flex-col items-center gap-4 text-lg capitalize"
+					>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">About</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">Products</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link">Services</a>
+						</li>
+						<li class="nav-item">
+							<a href="" class="inline-block nav-link cta-button-1">Contact</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.85.1/phaser.min.js"
+			integrity="sha512-jK+/XscTjPKeRjMChXdeN2kHLBRflR0XHVLpgPpRfglv+IM6ACYjji+hcpfdG1Iw6/MOD6FOIwc4MvMpv3Tpsw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<noscript>
+			<style>
+				/**
+				* Reinstate scrolling for non-JS clients
+				*/
+				.simplebar-content-wrapper {
+					scrollbar-width: auto;
+					-ms-overflow-style: auto;
+				}
+
+				.simplebar-content-wrapper::-webkit-scrollbar,
+				.simplebar-hide-scrollbar::-webkit-scrollbar {
+					display: initial;
+					width: initial;
+					height: initial;
+				}
+			</style>
+		</noscript>
+	</body>
+</html>
