@@ -30,6 +30,7 @@ export default class MainMenuScene extends Scene {
 		// action buttons
 		this.SETUP_play_action_button();
 		this.SETUP_info_action_button();
+		this.SETUP_fullscreen_toggle_button();
 	}
 
 	ACTION_launch_info_scene() {
@@ -223,5 +224,31 @@ export default class MainMenuScene extends Scene {
 			strokeThickness: 8,
 		});
 		score_label.setOrigin(0.5);
+	}
+
+	SETUP_fullscreen_toggle_button() {
+		const _texture_key: string = this.scale.isFullscreen
+			? "collapse"
+			: "expand";
+
+		const button_image = this.add.image(548, 848, "cq-atlas", _texture_key);
+		button_image.setAlpha(0.5);
+
+		const toggleFullscreen = () => {
+			this.scale.toggleFullscreen();
+
+			const _texture_key: string = this.scale.isFullscreen
+				? "expand"
+				: "collapse";
+			button_image.setFrame(_texture_key);
+		};
+
+		const button = new Button(button_image, {
+			mode: "pointerup",
+			threshold: 300,
+			clickInterval: 200,
+		});
+
+		button.on("click", toggleFullscreen, this);
 	}
 }
