@@ -24,6 +24,7 @@ function filterExternals(id: string) {
 
 export default defineConfig({
 	appType: "mpa",
+	base: "/DEMO-spark-charge/",
 	plugins: [nodePolyfills({ include: ["url"] })],
 	root: "./src",
 	build: {

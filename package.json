@@ -7,6 +7,7 @@
 		"dev": "vite",
 		"dev:host": "vite --host",
 		"build": "tsc && vite build",
+		"build:deploy": "npm run build && gh-pages -d dist",
 		"preview": "vite preview",
 		"preview:host": "vite preview --host",
 		"preview:swift": "npm run build && npm run preview:host"
@@ -23,6 +24,7 @@
 		"@glidejs/glide": "^3.6.2",
 		"autoprefixer": "^10.4.20",
 		"crypto-js": "^4.2.0",
+		"gh-pages": "^6.1.1",
 		"glob": "^11.0.0",
 		"lenis": "^1.1.13",
 		"lodash": "^4.17.21",
