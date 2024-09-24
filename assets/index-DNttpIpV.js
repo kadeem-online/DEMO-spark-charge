@@ -1,4 +1,4 @@
-import{s as ee}from"./init-DLhCMStE.js";import"./phaser-rbjdQqOn.js";import"./phaser3-rex-plugins-DxaJ81PS.js";/*!
+import{s as ee}from"./init-CZKvW5Wp.js";import"./phaser-rbjdQqOn.js";import"./phaser3-rex-plugins-DxaJ81PS.js";/*!
  * Glide.js v3.6.2
  * (c) 2013-2024 Jędrzej Chałubek (https://github.com/jedrzejchalubek/)
  * Released under the MIT License.
