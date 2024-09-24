@@ -53,12 +53,13 @@ export default class PreloadScene extends Scene {
 		this.load.image("menu-background", "menu-background.jpg");
 
 		// game atlas
-		// this.load.atlas("cq-atlas", "atlas.png", "atlas.json");
 		this.load.atlas({
 			key: "cq-atlas",
 			textureURL: "atlas.png",
 			atlasURL: "atlas.json",
 		});
+
+		this.load.audio("stage-bgm", ["stage-bg-music.mp3", "stage-bg-music.ogg"]);
 	}
 
 	create() {
