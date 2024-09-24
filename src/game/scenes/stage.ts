@@ -429,7 +429,7 @@ export default class StageScene extends Scene {
 		const wait = Phaser.Math.Between(min_wait, max_wait);
 
 		this.UTIL_spawn_token();
-		this.UTIL_despawn_token(800);
+		this.UTIL_despawn_token(1000);
 		// this.DEBUG_log_token_pool_stats();
 
 		this.time.delayedCall(wait, this.UTIL_token_spawn_timer, [], this);
