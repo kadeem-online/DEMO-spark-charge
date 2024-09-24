@@ -267,6 +267,7 @@ export default class StageScene extends Scene {
 	}
 
 	EVENT_on_shutdown() {
+		this.AUDIO_bgm?.stop();
 		this.scene.stop(SCENES.stage_overlay);
 	}
 
