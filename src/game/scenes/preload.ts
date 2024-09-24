@@ -73,10 +73,6 @@ export default class PreloadScene extends Scene {
 	}
 
 	nextScene() {
-		// this.scene.start(SCENES.mainmenu);
-		this.scene.transition({
-			target: SCENES.stage,
-			// duration: 3500,
-		});
+		this.scene.start(SCENES.mainmenu);
 	}
 }
